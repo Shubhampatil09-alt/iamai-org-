@@ -1,0 +1,32 @@
+FROM ubuntu:22.04
+
+# Install Python and dependencies
+RUN apt-get update && apt-get install -y \
+    python3.10 \
+    python3-pip \
+    gcc \
+    g++ \
+    libgomp1 \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements and install
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Install AWS Lambda runtime interface client
+RUN pip3 install --no-cache-dir awslambdaric
+
+# Download InsightFace models during build to /app/.insightface
+RUN mkdir -p /app/.insightface && \
+    python3 -c "from insightface.app import FaceAnalysis; app = FaceAnalysis(providers=['CPUExecutionProvider'], allowed_modules=['detection', 'recognition'], root='/app/.insightface'); app.prepare(ctx_id=0, det_size=(640, 640))"
+
+# Copy application
+COPY app.py .
+
+# Set entrypoint for Lambda
+ENTRYPOINT ["/usr/bin/python3", "-m", "awslambdaric"]
+CMD ["app.handler"]

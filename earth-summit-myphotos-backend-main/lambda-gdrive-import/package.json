@@ -1,0 +1,17 @@
+{
+  "name": "myphotos-gdrive-import-lambda",
+  "version": "1.0.0",
+  "description": "Process Google Drive import jobs for MyPhotos",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "build": "npm install --os=linux --cpu=arm64 sharp && zip -r function.zip . -x '*.git*'",
+    "deploy": "npm run build && aws lambda update-function-code --function-name myphotos-gdrive-import-processor --zip-file fileb://function.zip"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.620.0",
+    "@aws-sdk/s3-request-presigner": "^3.620.0",
+    "googleapis": "^43.0.0",
+    "sharp": "^0.33.5"
+  }
+}

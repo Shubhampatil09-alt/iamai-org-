@@ -1,0 +1,14 @@
+FROM --platform=linux/amd64 amazonlinux:2023
+
+# Install Node.js 20 and zip
+RUN dnf install -y nodejs20 zip
+
+WORKDIR /build
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+RUN zip -r function.zip . -x "*.git*" "Dockerfile*"
+
+CMD ["cat", "function.zip"]
