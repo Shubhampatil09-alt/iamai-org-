@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "My Photos",
+    "subtitle": "",
+    "metadata": {
+      "title": "MyPhotos ",
+      "description": ""
+    }
+  },
+  "assets": {
+    "logo": "/logo.svg",
+    "logoAlt": "Earth Summit 2025",
+    "exampleSelfie": "/person.jpeg"
+  },
+  "uploadView": {
+    "heading": "Welcome to Earth Summit My Photos",
+    "subheading": "Relive your Earth Summit moments - captured just for you",
+    "buttonText": "Find My Photos",
+    "microtext": "Your photos are securely matched using AI so that you can view your personalized gallery."
+  },
+  "confirmView": {
+    "retakeButton": "Retake Photo",
+    "searchButton": "Search",
+    "searchingButton": "Searching..."
+  },
+  "resultsView": {
+    "allFilterLabel": "All",
+    "allPhotosHeading": "All Photos",
+    "noImagesFound": "No images found",
+    "noImagesFoundForFilter": "No images found for {filter}",
+    "noMorePhotos": "No more photos to load",
+    "availableDates": ["All", "20 Nov", "21 Nov"],
+    "dateMapping": {
+      "20 Nov": "2025-11-20",
+      "21 Nov": "2025-11-21"
+    }
+  },
+  "instructionsModal": {
+    "heading": "Take a Clear Selfie",
+    "instructions": [
+      "Position your face in the frame, no cut off.",
+      "Ensure your full face is clearly visible.",
+      "Ensure good lighting and avoid shadows.",
+      "Face the camera directly, without sunglasses or hats.",
+      "Only one face should appear in the photo."
+    ],
+    "privacyNotice": "Your photo will be used solely to help us identify and match your event pictures. It will not be shared publicly.",
+    "takePhotoButton": "Take Photo",
+    "galleryButton": "Choose from Gallery",
+    "cancelButton": "Cancel"
+  },
+  "messages": {
+    "preparing": "Preparing your photo...",
+    "analyzing": "Analyzing your photo...",
+    "processing": "Getting the best shots out of 68,629 photos...",
+    "noFileSelected": "No file selected",
+    "genericError": "Something went wrong. Please try again.",
+    "noFacesDetected": "No faces detected"
+  },
+  "photoViewer": {
+    "shareButton": "Share",
+    "downloadButton": "Download",
+    "photoCount": "Photo {index} of {total}",
+    "capturedOn": "Captured on {date}"
+  },
+  "hooks": {
+    "shareTitle": "MyPhotos - Powered by GFFGPT",
+    "shareText": "Check out this photo!",
+    "linkCopied": "Link copied to clipboard!",
+    "genericError": "Something went wrong. Please try again."
+  }
+}
